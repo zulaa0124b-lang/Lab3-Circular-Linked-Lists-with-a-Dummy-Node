@@ -20,7 +20,7 @@ public class CircularLinkedList <T> {
         StringBuilder sb = new StringBuilder();
         Node<T> cur = dummy.next;
         while (cur != dummy){
-            sb.append(cur.data);
+            sb.append(cur.data).append(" ");
             cur = cur.next;
         }
         return sb.toString();
@@ -38,7 +38,7 @@ public class CircularLinkedList <T> {
         }
 
         reverseHelper (cur.next, sb);
-        sb.append(cur.data);
+        sb.append(cur.data).append(" ");
     }
 
     public boolean find(T value){
