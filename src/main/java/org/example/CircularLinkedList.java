@@ -28,7 +28,7 @@ public class CircularLinkedList <T> {
 
     public String showReverse(){
         StringBuilder sb = new StringBuilder();
-        reverseHelper (dummmy.next, sb);
+        reverseHelper (dummy.next, sb);
         return sb.toString();
     }
 
@@ -53,7 +53,16 @@ public class CircularLinkedList <T> {
     }
 
     public boolean remove(T value){
-        Node<T> cur = dummy;
-        while (cur != dummy){}
+        Node<T> prev = dummy;
+        Node<T> cur = dummy.next;
+        while (cur != dummy){
+            if (cur.data.equals(value)){
+                prev.next = cur.next;
+                return true;
+            }
+            prev = cur;
+            cur = cur.next;
+        }
+        return false;
     }
 }
