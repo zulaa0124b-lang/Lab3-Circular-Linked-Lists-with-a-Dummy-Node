@@ -17,6 +17,8 @@ class CircularLinkedListTest {
         void addItem() {
             CircularLinkedList<Integer> list = new CircularLinkedList<>();
             list.addItem(2);
-
+            list.addItem(4);
+            list.addItem(4);
+            list.addItem(3);
         }
     }
