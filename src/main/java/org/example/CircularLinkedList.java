@@ -7,9 +7,22 @@ public class CircularLinkedList <T> {
         dummy = new Node<>(null);
         dummy.next = dummy;
     }
-
+    public void addItem(T item) {
+        Node<T> newNode = new Node<>(item);
+        Node<T> cur = dummy;
+        while (cur.next != dummy) {
+            cur = cur.next;
+        }
+        newNode.next = dummy;
+        cur.next = newNode;
+    }
     public String showList() {
-        // start at dummy.next, walk until you're back at dummy
-        return "";
+        StringBuilder sb = new StringBuilder();
+        Node<T> cur = dummy.next;
+        while (cur != dummy){
+            sb.append(cur.data);
+            cur = cur.next;
+        }
+        return sb.toString().trim();
     }
 }
