@@ -18,7 +18,9 @@ class CircularLinkedListTest {
             CircularLinkedList<Integer> list = new CircularLinkedList<>();
             list.addItem(2);
             list.addItem(4);
-            list.addItem(4);
+            list.addItem(1);
             list.addItem(3);
+
+            assertEquals("2413", list.showList());
         }
     }
