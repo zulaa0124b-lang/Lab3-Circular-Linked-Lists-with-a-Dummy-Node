@@ -40,4 +40,20 @@ public class CircularLinkedList <T> {
         reverseHelper (cur.next, sb);
         sb.append(cur.data);
     }
+
+    public boolean find(T value){
+        Node<T> cur = dummy.next;
+        while (cur != dummy){
+            if (cur.data.equals(value)){
+                return true;
+            }
+            cur = cur.next;
+        }
+        return false;
+    }
+
+    public boolean remove(T value){
+        Node<T> cur = dummy;
+        while (cur != dummy){}
+    }
 }
