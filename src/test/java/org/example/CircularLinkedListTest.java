@@ -23,14 +23,16 @@ class CircularLinkedListTest {
             // to make it look understandable, I added space function
             assertEquals("2 4 1 3 ", list.showList());
         }
-        @Test
-        void removeItem() {
-            CircularLinkedList<Integer> list = new CircularLinkedList<>();
-            list.addItem(2);
-            list.addItem(4);
-            list.addItem(1);
-            list.remove(2);
-            assertTrue(true);
+    @Test
+    void removeItem() {
+        CircularLinkedList<Integer> list = new CircularLinkedList<>();
+        list.addItem(2);
+        list.addItem(4);
+        list.addItem(1);
+
+        assertTrue(list.remove(2));                 // did remove() work
+        assertEquals("4 1 ", list.showList());   // is 2 actually gone
+        assertFalse(list.find(2));              // sanity check via find, too
 
         }
         @Test
