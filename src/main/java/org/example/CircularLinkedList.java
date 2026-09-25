@@ -23,6 +23,21 @@ public class CircularLinkedList <T> {
             sb.append(cur.data);
             cur = cur.next;
         }
-        return sb.toString().trim();
+        return sb.toString();
+    }
+
+    public String showReverse(){
+        StringBuilder sb = new StringBuilder();
+        reverseHelper (dummmy.next, sb);
+        return sb.toString();
+    }
+
+    private void reverseHelper(Node<T> cur, StringBuilder sb) {
+        if (cur == dummy) {
+            return;
+        }
+
+        reverseHelper (cur.next, sb);
+        sb.append(cur.data);
     }
 }
