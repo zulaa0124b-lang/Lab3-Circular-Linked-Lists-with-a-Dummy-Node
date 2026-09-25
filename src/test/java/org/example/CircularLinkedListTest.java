@@ -2,6 +2,8 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 
+import java.nio.channels.AsynchronousServerSocketChannel;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CircularLinkedListTest {
@@ -41,6 +43,8 @@ class CircularLinkedListTest {
             list.addItem(2);
             // 2 is the only item, it should pass as it finds 2 and returns true
             assertTrue(list.find(2));
+            list.addItem(4);
+            assertFalse(list.find(3));
         }
         @Test
         void ShowReverse() {
@@ -52,4 +56,25 @@ class CircularLinkedListTest {
             //I added creating space logic after each value. It should pass
             assertEquals("3 1 4 2 ", list.showReverse());
         }
+
+        @Test
+        void remove() {
+            CircularLinkedList<Integer> list = new CircularLinkedList<>();
+            list.addItem(2);
+            assertFalse(list.remove(4)); // 4 is not existing
+
+            assertEquals("2 ", list.showReverse());
+            assertTrue(list.find(1)); //confirm 2 is still in the list and findable
+        }
+    @Test
+    void addAndRemoveManyItems() {
+        CircularLinkedList<Integer> list = new CircularLinkedList<>();
+        for (int i = 0; i < 100; i++) {
+            list.addItem(i);
+        }
+        for (int i = 0; i < 100; i++) {
+            assertTrue(list.remove(i));
+        }
+        assertEquals("", list.showList());
+    }
     }
